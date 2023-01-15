@@ -1,7 +1,4 @@
 <?php
-function redirection($url){
-    header("location: $url");
-}
 function render($templateName,$data){
     extract($data);
 

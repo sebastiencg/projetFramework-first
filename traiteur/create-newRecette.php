@@ -1,5 +1,6 @@
 <?php
 require_once("../librairies/outils.php");
+require_once ("../core/App/Redirection.php");
 $titre=null;
 $typeRecette=null;
 $recette=null;
@@ -24,6 +25,6 @@ if($titre&&$typeRecette&&$recette){
         "recette"=>$recette
     ]);
 
-    redirection("../index.php");
+
 }
-redirection("newRecette.php");
+App\Redirection::redirection("");

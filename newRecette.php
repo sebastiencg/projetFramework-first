@@ -1,4 +1,4 @@
 <?php
 
-require_once("librairies/outils.php");
-render("newRecette-template",[]);
+require_once("core/App/ElementPage.php");
+App\ElementPage::render("newRecette-template",[]);

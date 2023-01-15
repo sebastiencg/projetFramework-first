@@ -1,6 +1,7 @@
 <?php
 require_once("connection.php");
-require_once("../librairies/outils.php");
+require_once("../core/PdoConn/Connection.php");
+require_once("../core/App/Redirection.php");
 
 $commentaire = null;
 $id_recette = null;
@@ -22,4 +23,4 @@ if ($id_recette && $id_recette) {
         "id_recette" => $id_recette
     ]);
 }
-redirection("../info.php?id=$id_recette");
+App\Redirection::redirection("../info.php?id=$id_recette");

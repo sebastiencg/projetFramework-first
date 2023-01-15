@@ -1,5 +1,6 @@
 <?php
 require_once("../librairies/outils.php");
+require_once("../core/App/Redirection.php");
 $id=null;
 if (!empty($_GET['id'])){
     if(ctype_digit($_GET['id'])){
@@ -13,4 +14,4 @@ if (!empty($_GET['id'])){
         ]);
     }
 }
-redirection("../index.php");
+App\Redirection::redirection("");

@@ -1,5 +1,7 @@
 <?php
 require_once("../librairies/outils.php");
+require_once("../core/App/Redirection.php");
+
 $id=null;
 $titre=null;
 $typeRecette=null;
@@ -29,4 +31,4 @@ if($titre&&$typeRecette&&$recette&&$id){
         "recette"=>$recette
     ]);
 }
-redirection("../index.php");
+App\Redirection::redirection("");

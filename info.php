@@ -1,25 +1,27 @@
 <?php
-require_once("librairies/outils.php");
-require_once("traiteur/connection.php");
+require_once("core/App/Redirection.php");
+require_once("core/App/ElementPage.php");
+require_once("core/Entity/Post.php");
+require_once("core/Entity/Commentaire.php");
 $id = null;
 
 if (ctype_digit($_GET['id'])) {
     $id = $_GET['id'];
+    $requette=new Entity\Post();
+    $requette->constructeur();
+    $reponse=$requette->afficher($id);
 
-    $sql = "SELECT * FROM `recette` WHERE id=:id";
-    $requette = $conn->prepare($sql);
-    $requette->execute([
-        "id" => $id
-    ]);
-    $reponse=$requette->fetch();
+//-----for commmentaire-----------
 
-    require_once("commentaire.php");
+    $requette=new Entity\commentaire();
+    $requette->constructeur();
+    $reponses=$requette->afficherCommentaire($id);
 
-    render("info-template",[
+    App\ElementPage::render("info-template",[
         "reponse"=>$reponse,
         "reponses"=>$reponses
     ]);
 }
 else {
-    redirection("index.html");
+    App\Redirection::redirection("index.php");
 }

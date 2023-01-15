@@ -1,5 +1,5 @@
 <?php
-require_once("librairies/outils.php");
+require_once("core/App/ElementPage.php");
 require_once("traiteur/connection.php");
 
 $id = null;
@@ -13,7 +13,7 @@ if (ctype_digit($_GET['id'])) {
         "id" => $id
     ]);
     $reponse=$requette->fetch();
-    render("modifier-recette-template",[
+    App\ElementPage::render("modifier-recette-template",[
         "reponse"=>$reponse
     ]);
 }

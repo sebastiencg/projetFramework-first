@@ -1,11 +1,11 @@
 <?php
-require_once("traiteur/connection.php");
-require_once("librairies/outils.php");
-$sql="SELECT * FROM `recette` ";
-$requette=$conn->query($sql);
-$reponses=$requette->fetchAll();
+require_once("core/App/ElementPage.php");
+require_once("core/Entity/Post.php");
 
-render("index-template",
+$requette= new Entity\Post();
+$requette->constructeur();
+$reponses=$requette->afficherTous();
+App\ElementPage::render("index-template",
     [
         "reponses"=>$reponses
     ]);
